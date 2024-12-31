@@ -4,3 +4,6 @@
 - Add Vector3Fp subtypes to allow Vector3 operations with fixed points.
 - Add several tests for testing the current operations.
 - Add sample scene for showing the difference based on the fixed vs floating logic.  
+
+## [1.0.1] - 31-12-2024 
+- Remove sample scene to make the package more agnostic.
