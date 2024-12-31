@@ -1,0 +1,16 @@
+{
+    "name": "FixedPoint.SubTypes",
+    "rootNamespace": "",
+    "references": [
+        "GUID:03a39c689aed1624f8eebe4d5bf3b0f0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
