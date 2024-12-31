@@ -3,7 +3,7 @@ using FixedPoint.SubTypes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace FixedPoint.Examples.MovementComparison
+namespace FixedPoint.Samples.MovementComparison
 {
     public class MovementComparisonManager : MonoBehaviour
     {
