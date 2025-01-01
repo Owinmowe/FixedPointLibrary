@@ -111,7 +111,7 @@ namespace FixedPoint.SubTypes
         
         public string ToString(string format, IFormatProvider formatProvider)
         {
-            return $"{x.ToString("0.##########", formatProvider)}," +
+            return $" {x.ToString("0.##########", formatProvider)}," +
                    $" {y.ToString("0.##########", formatProvider)}," +
                    $" {z.ToString("0.##########", formatProvider)}";
         }
