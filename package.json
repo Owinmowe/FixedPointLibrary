@@ -1,6 +1,6 @@
 {
   "name": "com.owinmowe.fixedpointlibrary",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "Fixed Point Library",
   "description": "Fixed Point Library created for deterministic operations.",
   "unity": "2020.1",
