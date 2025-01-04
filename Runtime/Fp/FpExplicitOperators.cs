@@ -8,7 +8,7 @@ namespace FixedPoint
         }
         public static explicit operator long(Fp value)
         {
-            return value._rawValue >> FractionalPlaces;
+            return value.RawValue >> FractionalPlaces;
         }
         public static explicit operator Fp(float value)
         {
@@ -16,7 +16,7 @@ namespace FixedPoint
         }
         public static explicit operator float(Fp value)
         {
-            return (float)value._rawValue / InternalOne;
+            return (float)value.RawValue / InternalOne;
         }
         public static explicit operator Fp(double value)
         {
@@ -24,7 +24,7 @@ namespace FixedPoint
         }
         public static explicit operator double(Fp value)
         {
-            return (double)value._rawValue / InternalOne;
+            return (double)value.RawValue / InternalOne;
         }
         public static implicit operator Fp(decimal value)
         {
@@ -32,7 +32,7 @@ namespace FixedPoint
         }
         public static implicit operator decimal(Fp value)
         {
-            return (decimal)value._rawValue / InternalOne;
+            return (decimal)value.RawValue / InternalOne;
         }
     }
 }

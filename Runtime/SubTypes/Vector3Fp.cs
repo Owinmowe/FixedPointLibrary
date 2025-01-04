@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace FixedPoint.SubTypes
 {
+    [Serializable]
     public partial struct Vector3Fp : IEquatable<Vector3Fp>, IFormattable
     {
         /// <summary>

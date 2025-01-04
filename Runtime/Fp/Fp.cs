@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace FixedPoint
 {
+    [System.Serializable]
     public partial struct Fp : IEquatable<Fp>, IComparable<Fp>, IFormattable
     {
         public const long InternalMaxValue = long.MaxValue;
@@ -18,22 +19,21 @@ namespace FixedPoint
         public const int BitsNumbers = 64;
         public const int FractionalPlaces = 32;
 
-        public long RawValue => _rawValue;
-        private readonly long _rawValue;
+        public long RawValue;
 
         public Fp(long rawValue)
         {
-            _rawValue = rawValue;
+            RawValue = rawValue;
         }
 
         public Fp(int value)
         {
-            _rawValue = value * InternalOne;
+            RawValue = value * InternalOne;
         }
 
         public Fp(float value)
         {
-            _rawValue = (long)(value * InternalOne);
+            RawValue = (long)(value * InternalOne);
         }
         
         /// <summary>
@@ -42,8 +42,8 @@ namespace FixedPoint
         /// </summary>
         public static Fp operator +(Fp x, Fp y)
         {
-            var xl = x._rawValue;
-            var yl = y._rawValue;
+            var xl = x.RawValue;
+            var yl = y.RawValue;
             var sum = xl + yl;
             
             if (((~(xl ^ yl) & (xl ^ sum)) & InternalMinValue) != 0)
@@ -59,8 +59,8 @@ namespace FixedPoint
         /// </summary>
         public static Fp operator -(Fp x, Fp y)
         {
-            var xl = x._rawValue;
-            var yl = y._rawValue;
+            var xl = x.RawValue;
+            var yl = y.RawValue;
             var diff = xl - yl;
             
             if ((((xl ^ yl) & (xl ^ diff)) & InternalMinValue) != 0)
@@ -75,8 +75,8 @@ namespace FixedPoint
         /// </summary>
         public static Fp operator /(Fp x, Fp y)
         {
-            var xl = x._rawValue;
-            var yl = y._rawValue;
+            var xl = x.RawValue;
+            var yl = y.RawValue;
 
             if (yl == 0)
             {
@@ -137,8 +137,8 @@ namespace FixedPoint
         public static Fp operator *(Fp x, Fp y)
         {
 
-            var xl = x._rawValue;
-            var yl = y._rawValue;
+            var xl = x.RawValue;
+            var yl = y.RawValue;
 
             var xlo = (ulong)(xl & 0x00000000FFFFFFFF);
             var xhi = xl >> FractionalPlaces;
@@ -216,55 +216,55 @@ namespace FixedPoint
         public static Fp operator %(Fp x, Fp y)
         {
             return new Fp(
-                x._rawValue == InternalMinValue & y._rawValue == -1 ?
+                x.RawValue == InternalMinValue & y.RawValue == -1 ?
                 0 :
-                x._rawValue % y._rawValue);
+                x.RawValue % y.RawValue);
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator ==(Fp x, Fp y)
         {
-            return x._rawValue == y._rawValue;
+            return x.RawValue == y.RawValue;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator !=(Fp x, Fp y)
         {
-            return x._rawValue != y._rawValue;
+            return x.RawValue != y.RawValue;
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator >(Fp x, Fp y)
         {
-            return x._rawValue > y._rawValue;
+            return x.RawValue > y.RawValue;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator <(Fp x, Fp y)
         {
-            return x._rawValue < y._rawValue;
+            return x.RawValue < y.RawValue;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator >=(Fp x, Fp y)
         {
-            return x._rawValue >= y._rawValue;
+            return x.RawValue >= y.RawValue;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool operator <=(Fp x, Fp y)
         {
-            return x._rawValue <= y._rawValue;
+            return x.RawValue <= y.RawValue;
         }
 
         public int CompareTo(Fp other)
         {
-            return _rawValue.CompareTo(other._rawValue);
+            return RawValue.CompareTo(other.RawValue);
         }
 
         public bool Equals(Fp other)
         {
-            return _rawValue == other._rawValue;
+            return RawValue == other.RawValue;
         }
         
         public override bool Equals(object obj)
@@ -286,7 +286,7 @@ namespace FixedPoint
         
         public override int GetHashCode()
         {
-            return _rawValue.GetHashCode();
+            return RawValue.GetHashCode();
         }
     }
 }

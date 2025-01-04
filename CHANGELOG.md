@@ -7,3 +7,6 @@
 
 ## [1.0.1] - 31-12-2024 
 - Remove sample scene to make the package more agnostic.
+
+## [1.0.2] - 4-1-2025
+- Add editor property drawers for Fp/Vector3Fp
