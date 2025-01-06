@@ -9,7 +9,10 @@
 - Remove sample scene to make the package more agnostic.
 
 ## [1.0.2] - 4-1-2025
-- Add editor property drawers for Fp/Vector3Fp
+- Add editor property drawers for Fp/Vector3Fp.
 
 ## [1.0.3] - 4-1-2025
-- Fix editor bug with property drawers for Fp
+- Fix editor bug with property drawers for Fp.
+
+## [1.0.4] - 6-1-2025
+- Add basic QuaternionFp class with some operations. 

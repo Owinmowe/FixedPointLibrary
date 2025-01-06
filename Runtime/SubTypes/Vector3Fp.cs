@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace FixedPoint.SubTypes
 {
@@ -35,7 +34,7 @@ namespace FixedPoint.SubTypes
             this.z = z;
         }
         
-        public Vector3Fp(Vector3 vector3)
+        public Vector3Fp(UnityEngine.Vector3 vector3)
         {
             x = new Fp(vector3.x);
             y = new Fp(vector3.y);
