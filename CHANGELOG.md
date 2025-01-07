@@ -16,3 +16,6 @@
 
 ## [1.0.4] - 6-1-2025
 - Add basic QuaternionFp class with some operations. 
+
+## [1.0.5] - 6-1-2025
+- Add explicit operations and tests for the QuaternionFp class. 
