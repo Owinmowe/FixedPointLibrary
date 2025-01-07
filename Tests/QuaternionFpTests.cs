@@ -42,5 +42,17 @@ namespace FixedPoint.Tests
 
             Assert.True((Vector3)testVector3FpResult == testVector3Result);
         }
+
+        [Test]
+        public void NormalizationTest()
+        {
+            Quaternion testQuaternion = Quaternion.Euler(new Vector3(2f, 92f, -23f));
+            testQuaternion.Normalize();
+
+            QuaternionFp testQuaternionFp = new QuaternionFp(testQuaternion);
+            testQuaternionFp.Normalize();
+
+            Assert.True((Quaternion)testQuaternionFp == testQuaternion);
+        }
     }
 }

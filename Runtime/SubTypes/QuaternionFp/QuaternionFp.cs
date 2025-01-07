@@ -55,6 +55,17 @@ namespace FixedPoint.SubTypes
             return result;
         }
 
+        public void Normalize()
+        {
+            Fp num = MathFp.Sqrt(MathQuaternionFp.Dot(this, this));
+            if (num <= 0)
+            {
+                this = QuaternionFp.Identity;
+            }
+
+            this = new QuaternionFp(this.x / num, this.y / num, this.z / num, this.w / num);
+        }
+
         public static bool operator ==(QuaternionFp lhs, QuaternionFp rhs)
         {            
             return MathQuaternionFp.Dot(lhs, rhs) == Fp.One;
