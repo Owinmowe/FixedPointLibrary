@@ -1,11 +1,10 @@
 using System;
 using System.Globalization;
-using System.Runtime.CompilerServices;
 
 namespace FixedPoint.SubTypes
 {
     [Serializable]
-    public struct QuaternionFp : IEquatable<QuaternionFp>, IFormattable
+    public partial struct QuaternionFp : IEquatable<QuaternionFp>, IFormattable
     {
         public Fp x;
         public Fp y;
@@ -14,7 +13,6 @@ namespace FixedPoint.SubTypes
 
         public readonly static QuaternionFp Identity = new QuaternionFp(Fp.Zero, Fp.Zero, Fp.Zero, Fp.One);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public QuaternionFp(Fp x, Fp y, Fp z, Fp w)
         {
             this.x = x;
@@ -23,7 +21,6 @@ namespace FixedPoint.SubTypes
             this.w = w;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public QuaternionFp(UnityEngine.Quaternion quaternion)
         {
             this.x = new Fp(quaternion.x);
