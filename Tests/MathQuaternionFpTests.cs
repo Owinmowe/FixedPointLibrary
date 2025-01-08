@@ -19,5 +19,21 @@ namespace FixedPoint.Tests
 
             Assert.True((float)testQuaternionFpResult == testQuaternionResult);
         }
+
+        [Test]
+        public void InverseTest()
+        {
+            Quaternion testQuaternion = Quaternion.Euler(new Vector3(-54f, 163f, -23f));
+
+            QuaternionFp testQuaternionFp = new QuaternionFp(testQuaternion);
+            QuaternionFp testQuaternionFpInverse = MathQuaternionFp.Inverse(testQuaternionFp);
+
+            bool correctX = testQuaternionFp.x == -testQuaternionFpInverse.x;
+            bool correctY = testQuaternionFp.y == -testQuaternionFpInverse.y;
+            bool correctZ = testQuaternionFp.z == -testQuaternionFpInverse.z;
+            bool correctW = testQuaternionFp.w == testQuaternionFpInverse.w;
+
+            Assert.True(correctX && correctY && correctZ && correctW);
+        }
     }
 }

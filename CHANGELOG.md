@@ -22,3 +22,6 @@
 
 ## [1.0.6] - 7-1-2025
 - Add normalization for the QuaternionFp class. 
+
+## [1.0.7] - 8-1-2025
+- Add Inverse for the QuaternionFp class.
